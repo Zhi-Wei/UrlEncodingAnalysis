@@ -55,6 +55,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DotNetFramework\HttpUtilityUrlEncodeUnicodeTests.cs" />
     <Compile Include="DotNetFramework\HttpUtilityUrlEncodeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
