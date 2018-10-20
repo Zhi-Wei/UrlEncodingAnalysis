@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="DotNetFramework\HttpUtilityUrlEncodeUnicodeTests.cs" />
     <Compile Include="DotNetFramework\HttpUtilityUrlEncodeTests.cs" />
+    <Compile Include="DotNetFramework\UriEscapeUriStringTests.cs" />
     <Compile Include="DotNetFramework\UriEscapeDataStringTests.cs" />
     <Compile Include="DotNetFramework\WebUtilityUrlEncodeTests.cs" />
     <Compile Include="DotNetFramework\HttpUtilityUrlPathEncodeTests.cs" />
