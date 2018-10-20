@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="DotNetFramework\HttpUtilityUrlEncodeUnicodeTests.cs" />
     <Compile Include="DotNetFramework\HttpUtilityUrlEncodeTests.cs" />
+    <Compile Include="DotNetFramework\HttpUtilityUrlPathEncodeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
