@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UrlEncodingAnalysisTests.DotNetFramework
 {
     /// <summary>
-    /// WebUtility 類別 URL 編碼方法的測試類別。
+    /// WebUtility 類別 UrlEncode 方法的測試類別。
     /// </summary>
     [TestClass]
     public class WebUtilityUrlEncodeTests
@@ -441,10 +441,10 @@ namespace UrlEncodingAnalysisTests.DotNetFramework
         [TestMethod]
         [TestCategory(nameof(WebUtility))]
         [TestProperty(nameof(WebUtility), nameof(WebUtility.UrlEncode))]
-        public void 當輸入為長度65535的字串時_必須無拋出例外()
+        public void 當輸入為長度65520的字串時_必須無拋出例外()
         {
             // Arrange
-            var input = string.Join("", Enumerable.Repeat("A", ushort.MaxValue));
+            var input = string.Join("", Enumerable.Repeat("A", 65520));
 
             // Act
             Action act = () => WebUtility.UrlEncode(input);
