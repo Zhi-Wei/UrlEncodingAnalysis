@@ -68,6 +68,7 @@
     <Compile Include="DotNetFramework\WebUtilityUrlEncodeTests.cs" />
     <Compile Include="DotNetFramework\HttpUtilityUrlPathEncodeTests.cs" />
     <Compile Include="DotNetPlatformExtensions\UrlEncoderEncodeTests.cs" />
+    <Compile Include="FlurlLibrary\UrlEncodeIllegalCharactersTests.cs" />
     <Compile Include="FlurlLibrary\UrlEncodeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
