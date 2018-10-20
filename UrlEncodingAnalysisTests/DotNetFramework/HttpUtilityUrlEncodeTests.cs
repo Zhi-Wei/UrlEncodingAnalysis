@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using System;
+using System.Linq;
+using System.Web;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -417,5 +419,71 @@ namespace UrlEncodingAnalysisTests.DotNetFramework
         }
 
         #endregion -- RFC 3986 未保留字 --
+
+        #region -- 其他 --
+
+        [TestMethod]
+        [TestCategory(nameof(HttpUtility))]
+        [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
+        public void 當輸入為RFC3986的空格時_必須編碼為百分號20()
+        {
+            // Arrange
+            var input = " ";
+            var expected = "%20";
+
+            // Act
+            var actual = HttpUtility.UrlEncode(input);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(HttpUtility))]
+        [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
+        public void 當輸入為長度65535的字串時_必須無拋出例外()
+        {
+            // Arrange
+            var input = string.Join("", Enumerable.Repeat("A", ushort.MaxValue));
+
+            // Act
+            Action act = () => HttpUtility.UrlEncode(input);
+
+            // Assert
+            act.Should().NotThrow();
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(HttpUtility))]
+        [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
+        public void 當輸入為任何的字元字串時_必須無拋出例外()
+        {
+            // Arrange
+            var allChars = Enumerable.Range(0, char.MaxValue + 1).Select(i => (char)i).ToList();
+
+            // Act
+            Action act = () => allChars.ForEach(c => HttpUtility.UrlEncode(c.ToString()));
+
+            // Assert
+            act.Should().NotThrow();
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(HttpUtility))]
+        [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
+        public void 當輸入為百分號編碼的字串時_必須無重複編碼()
+        {
+            // Arrange
+            var input = "%20";
+            var expected = "%20";
+
+            // Act
+            var actual = HttpUtility.UrlEncode(input);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        #endregion -- 其他 --
     }
 }
