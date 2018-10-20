@@ -301,5 +301,121 @@ namespace UrlEncodingAnalysisTests.DotNetFramework
         }
 
         #endregion -- RFC 3986 保留字 --
+
+        #region -- RFC 3986 未保留字 --
+
+        [TestMethod]
+        [TestCategory(nameof(HttpUtility))]
+        [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
+        public void 當輸入為RFC3986未保留字的大寫英文字母時_必須無編碼()
+        {
+            // Arrange
+            var input = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var expected = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            // Act
+            var actual = HttpUtility.UrlEncode(input);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(HttpUtility))]
+        [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
+        public void 當輸入為RFC3986未保留字的小寫英文字母時_必須無編碼()
+        {
+            // Arrange
+            var input = "abcdefghijklmnopqrstuvwxyz";
+            var expected = "abcdefghijklmnopqrstuvwxyz";
+
+            // Act
+            var actual = HttpUtility.UrlEncode(input);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(HttpUtility))]
+        [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
+        public void 當輸入為RFC3986未保留字的十進制數字時_必須無編碼()
+        {
+            // Arrange
+            var input = "0123456789";
+            var expected = "0123456789";
+
+            // Act
+            var actual = HttpUtility.UrlEncode(input);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(HttpUtility))]
+        [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
+        public void 當輸入為RFC3986未保留字的連字暨減號時_必須無編碼()
+        {
+            // Arrange
+            var input = "-";
+            var expected = "-";
+
+            // Act
+            var actual = HttpUtility.UrlEncode(input);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(HttpUtility))]
+        [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
+        public void 當輸入為RFC3986未保留字的句號時_必須無編碼()
+        {
+            // Arrange
+            var input = ".";
+            var expected = ".";
+
+            // Act
+            var actual = HttpUtility.UrlEncode(input);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(HttpUtility))]
+        [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
+        public void 當輸入為RFC3986未保留字的底線時_必須無編碼()
+        {
+            // Arrange
+            var input = "_";
+            var expected = "_";
+
+            // Act
+            var actual = HttpUtility.UrlEncode(input);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(HttpUtility))]
+        [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
+        public void 當輸入為RFC3986未保留字的波浪號時_必須無編碼()
+        {
+            // Arrange
+            var input = "~";
+            var expected = "~";
+
+            // Act
+            var actual = HttpUtility.UrlEncode(input);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        #endregion -- RFC 3986 未保留字 --
     }
 }
