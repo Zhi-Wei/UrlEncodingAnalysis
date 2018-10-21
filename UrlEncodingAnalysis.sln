@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlEncodingAnalysisTests", "UrlEncodingAnalysisTests\UrlEncodingAnalysisTests.csproj", "{053B20AC-2B2D-45CE-8890-D4C8B487A1AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlEncodingAnalysis", "UrlEncodingAnalysis\UrlEncodingAnalysis.csproj", "{5BD7CADE-3984-4BD8-A738-30AD34A9567C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{053B20AC-2B2D-45CE-8890-D4C8B487A1AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{053B20AC-2B2D-45CE-8890-D4C8B487A1AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{053B20AC-2B2D-45CE-8890-D4C8B487A1AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BD7CADE-3984-4BD8-A738-30AD34A9567C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BD7CADE-3984-4BD8-A738-30AD34A9567C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BD7CADE-3984-4BD8-A738-30AD34A9567C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BD7CADE-3984-4BD8-A738-30AD34A9567C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
