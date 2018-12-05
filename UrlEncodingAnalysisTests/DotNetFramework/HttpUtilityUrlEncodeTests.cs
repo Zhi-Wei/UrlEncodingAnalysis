@@ -471,6 +471,38 @@ namespace UrlEncodingAnalysisTests.DotNetFramework
         [TestMethod]
         [TestCategory(nameof(HttpUtility))]
         [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
+        public void 當輸入為任何的字元字串時_必須共65536字元皆無拋出例外()
+        {
+            // Arrange
+            double noExceptionChars = 0;
+            int maxChars = char.MaxValue + 1;
+            var allChars = Enumerable.Range(0, maxChars).Select(i => (char)i).ToList();
+
+            // Act
+            allChars.ForEach(c =>
+            {
+                try
+                {
+                    HttpUtility.UrlEncode(c.ToString());
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+
+                noExceptionChars++;
+            });
+
+            // Assert
+            double passRate = (noExceptionChars / maxChars) * 100;
+            Console.WriteLine($"無拋出例外比例：{passRate.ToString()}%。");
+
+            noExceptionChars.Should().Be(maxChars);
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(HttpUtility))]
+        [TestProperty(nameof(HttpUtility), nameof(HttpUtility.UrlEncode))]
         public void 當輸入為百分號編碼的字串時_必須無重複編碼()
         {
             // Arrange
